@@ -6,7 +6,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
+import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_main.*
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,8 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Создаю листенеров на изменения текста в editTexts
         eT_convert_from.addTextChangedListener(change_editText_convert_from)
         eT_convert_to.addTextChangedListener(change_editText_convert_to)
+
+        // Из за того что изменения в листенере вызывает изменения в другом
+        // Появляется рекурсия. Чтобы избежать этого создал переменную флаг
+        // кто является источником новых данных
         eT_convert_from.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
                 true -> master = Master.CONVERT_FROM
@@ -29,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Создам слушателя который возьмет имя выбранного item и передаст в converter
+        // Создам слушателя который возьмет имя выбранного item из списка и передаст в converter
         currency_from.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
@@ -59,11 +71,15 @@ class MainActivity : AppCompatActivity() {
     protected var change_editText_convert_from: TextWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable) {
             if (master == Master.CONVERT_FROM) {
-                if (!s.isEmpty()) {
-                    converter.update_convert_from_count(s.toString().toDouble())
-                } else {
-                    converter.update_convert_from_count(0.0)
+                // Проверим можем ли конвертнуть. Если нет то засунем 0.
+                var new_count = s.toString().toDoubleOrNull()
+
+                if (new_count == null) {
+                    new_count = 0.0
                 }
+
+                converter.update_convert_from_count(new_count)
+
             }
         }
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
@@ -74,11 +90,14 @@ class MainActivity : AppCompatActivity() {
     protected var change_editText_convert_to: TextWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable) {
             if (master == Master.CONVERT_TO) {
-                if (!s.isEmpty()) {
-                    converter.update_convert_to_count(s.toString().toDouble())
-                } else {
-                    converter.update_convert_to_count(0.0)
+                // Проверим можем ли конвертнуть. Если нет то засунем 0.
+                var new_count = s.toString().toDoubleOrNull()
+
+                if (new_count == null) {
+                    new_count = 0.0
                 }
+
+                converter.update_convert_to_count(new_count)
             }
         }
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
