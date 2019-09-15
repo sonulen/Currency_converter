@@ -3,4 +3,5 @@
     <string name="convert_from">Converting from</string>
     <string name="convert_to">Converting to</string>
     <string name="count">Count</string>
+    <string name="wait">Wait for update</string>
 </resources>

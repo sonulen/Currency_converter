@@ -4,4 +4,5 @@
     <string name="convert_from">Конвертировать из</string>
     <string name="convert_to">Конвертировать в</string>
     <string name="count">Количество</string>
+    <string name="wait">Дождитесь обновления данных...</string>
 </resources>

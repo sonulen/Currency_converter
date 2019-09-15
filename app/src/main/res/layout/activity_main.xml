@@ -7,18 +7,56 @@
     tools:context=".MainActivity"
     app:fontFamily="@font/fira_mono">
 
+    <RelativeLayout
+        android:id="@+id/layout_with_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/wait"
+                app:fontFamily="@font/fira_mono" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="invisible"
+        >
 
         <TextView
             android:id="@+id/text_view_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/convert_from"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:fontFamily="@font/fira_mono"
+            style="@android:style/Widget.Holo.TextView"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,7 +67,10 @@
                 android:id="@+id/spinner3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:spinnerMode="dropdown"
+                app:fontFamily="@font/fira_mono"
+                android:theme="@android:style/Widget.Holo.Spinner" />
 
             <EditText
                 android:id="@+id/eT_convert_from"
@@ -39,7 +80,9 @@
                 android:ems="10"
                 android:hint="@string/count"
                 android:inputType="number"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:fontFamily="@font/fira_mono"
+                style="@android:style/Widget.Holo.EditText" />
 
         </LinearLayout>
 
@@ -48,7 +91,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/convert_to"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            app:fontFamily="@font/fira_mono"
+            style="@android:style/Widget.Holo.TextView" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,7 +104,9 @@
                 android:id="@+id/spinner4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                app:fontFamily="@font/fira_mono"
+                android:theme="@android:style/Widget.Holo.Spinner" />
 
             <EditText
                 android:id="@+id/eT_convert_to"
@@ -69,7 +116,9 @@
                 android:ems="10"
                 android:hint="@string/count"
                 android:inputType="number"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:fontFamily="@font/fira_mono"
+                style="@android:style/Widget.Holo.EditText" />
 
         </LinearLayout>
 
