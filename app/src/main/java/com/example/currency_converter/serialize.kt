@@ -5,6 +5,6 @@ class ResponseFixerIo {
     internal var timestamp: Int? = null
     internal var base: String? = null
     internal var date: String? = null
-    internal val rates: Map<String, Double>? = null
+    lateinit var rates: Map<String, Double>
 }
 

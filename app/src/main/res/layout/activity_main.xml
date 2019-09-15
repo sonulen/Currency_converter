@@ -64,25 +64,28 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
+                android:id="@+id/currency_from"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:dropDownWidth="wrap_content"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:minWidth="120dp"
                 android:spinnerMode="dropdown"
-                app:fontFamily="@font/fira_mono"
-                android:theme="@android:style/Widget.Holo.Spinner" />
+                android:theme="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
+                app:fontFamily="@font/fira_mono" />
 
             <EditText
                 android:id="@+id/eT_convert_from"
+                style="@android:style/Widget.Holo.EditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/count"
-                android:inputType="number"
+                android:inputType="number|numberDecimal"
                 android:textSize="14sp"
-                app:fontFamily="@font/fira_mono"
-                style="@android:style/Widget.Holo.EditText" />
+                app:fontFamily="@font/fira_mono" />
 
         </LinearLayout>
 
@@ -101,24 +104,27 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/currency_to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:fontFamily="@font/fira_mono"
-                android:theme="@android:style/Widget.Holo.Spinner" />
+                android:dropDownWidth="wrap_content"
+                android:gravity="center"
+                android:minWidth="120dp"
+                android:theme="@style/Widget.AppCompat.Light.DropDownItem.Spinner"
+                app:fontFamily="@font/fira_mono" />
 
             <EditText
                 android:id="@+id/eT_convert_to"
+                style="@android:style/Widget.Holo.EditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/count"
-                android:inputType="number"
+                android:inputType="number|numberDecimal"
                 android:textSize="14sp"
-                app:fontFamily="@font/fira_mono"
-                style="@android:style/Widget.Holo.EditText" />
+                app:fontFamily="@font/fira_mono" />
 
         </LinearLayout>
 
