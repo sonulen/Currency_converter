@@ -1,5 +1,7 @@
 # Конвертер валюты
 
+https://github.com/sonulen/Currency_converter/workflows/Android%20CI/badge.svg
+
 Берет данные из [api](https://fixer.io/), парсит и обрабатывает.
 
 Библиотеки:
